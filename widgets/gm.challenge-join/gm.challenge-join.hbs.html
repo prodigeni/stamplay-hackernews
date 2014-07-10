@@ -1,0 +1,43 @@
+<!-- 
+	Challenge Id is generated from the challenge Title by converting like this:	
+	challenge Name:  "My Stamplay challenge"   ->   challenge Id:  "my-stamplay-challenge"
+
+	<div data-stamplay-widget="gm.challenge-join" data-challenge-id="[YOUR CHALLENGE ID HERE]"></div>  
+-->
+
+  <div id="challengejoin" class= "row">
+
+  	<div class="col-md-12">
+  		
+  		{{#if user.isLogged}}
+  		
+  			<h4>{{challenge.title}}</h4>
+		  	
+		  	<ul>
+		  	{{#each challenge.levels}}
+		  		<li style="display:inline-block;text-align:center;width:100px;"> 
+		  			<img style="display:inline-block;" src="{{lockedBadgeUrl}}"/> 
+		  			<p style="font-size:15px;">{{title}}</p>
+		  		</li>
+		  	{{/each}}
+				</ul>
+
+				{{#unless userChallenge.joined}}
+					<a href="#" id="joinChallenge" class="btn btn-primary pull-right">Join Challenge</a>
+				{{/unless}}
+			
+			{{else}}
+
+				<p>{{challenge.title}}</p>
+				<ul>
+					{{#each challenge.levels}}
+				  	<li style="display:inline-block;text-align:center;width:100px;"> 
+				  		<img style="display:inline-block;" src="{{lockedBadgeUrl}}"/> 
+				  		<p style="font-size:15px;">{{title}}</p>
+				  	</li>
+				 	{{/each}}
+				</ul>
+				
+			{{/if}}
+  	</div>
+  </div>

@@ -1,0 +1,90 @@
+<!-- 
+	Form Id is generated from the Form Title by converting like this:	
+	Form Name:  "My Beauty Form"   ->   Form Id:  "my-beauty-form"
+
+  <div data-stamplay-widget="form.display" data-form-id="[YOUR FORM ID HERE]"></div>
+-->
+
+<div class="row">
+	
+	<div  id="{{form.formId}}-form-body" class="col-md-12">
+		<form id="{{form.formId}}-form"  data-validate="parsley" >
+			<h3 class="text-center">{{form.title}}</h3>
+        <div class="row">
+				{{#each form.fields}}
+					<div class="form-group">													
+						<div class="col-md-3">
+							<label> {{name}} {{#if required}} * {{/if}}</label>
+						</div>
+						<div class= "col-md-9">
+
+						{{#if textfield}}
+							<input class="form-control {{#if required}}required{{/if}}" name="{{id}}" type="{{type}}"></input>
+						{{/if}}
+
+						{{#if email}}
+							<input class="form-control {{#if required}}required{{/if}}" name="{{id}}" type="{{type}}"></input>
+						{{/if}}
+						
+						{{#if textarea}}
+							<textarea class="form-control {{#if required}}required{{/if}}" name="{{id}}" type="{{type}}" rows="10"></textarea>
+						{{/if}}
+
+						{{#if dropdown}}
+							<select class="{{#if required}}required{{/if}}" name="{{id}}" type="{{type}}">
+								<option value=""> </option>
+								{{#each options}}
+									<option value= "{{this}}">{{this}}</option>
+								{{/each}}
+							</select>
+						{{/if}}
+
+						{{#if radio}}
+							{{#each options}}
+								<input  class="{{#if ../required}}required{{/if}} checkbox-inline" name="{{../id}}" 
+								type="{{../type}}" value="{{this}}">{{this}}</input>
+							{{/each}}
+						{{/if}}
+
+						{{#if checkbox}}
+							{{#each options}}
+								<input class="{{#if ../required}}required{{/if}} checkbox-inline" data-group="{{../id}}" name="{{../id}}"
+											type="{{../type}}" value= "{{this}}"> {{this}} 
+								</input>
+							{{/each}}
+						{{/if}}
+						</div>						
+					</div>
+				{{/each}}
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-md-12">
+				        			<input class="btn btn-success pull-right" type="submit" value="Submit" id="sendForm">
+                    </div>
+                </div>
+			</form>
+		<br>
+	</div>
+	
+	<div id="{{form.formId}}-success" style="display:none">
+		<p>Thank you!</p>	
+	</div>
+
+	<div id="{{form.formId}}-error" style="display:none">
+		<p><span class="glyphicon glyphicon-remove" style="margin-right:8px"></span>Error on form submit</p>	
+	</div>
+
+	<div id="{{form.formId}}-error-logged" style="display:none">
+		<p><span class="glyphicon glyphicon-remove" style="margin-right:8px"></span>Please login to submit this form</p>	
+	</div>
+
+	<div id="{{form.formId}}-error-already" style="display:none">
+		<p><span class="glyphicon glyphicon-remove" style="margin-right:8px"></span>You already answered to this</p>	
+	</div>
+
+	<div id="{{form.formId}}-error-date" style="display:none">
+		<p><span class="glyphicon glyphicon-remove" style="margin-right:8px"></span>You can no longer submit cause this form is expired</p>	
+	</div>	
+
+</div>

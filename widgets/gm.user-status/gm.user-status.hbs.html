@@ -1,0 +1,24 @@
+<!-- 
+	Challenge Id is generated from the challenge Title by converting like this:	
+	challenge Name:  "My Stamplay challenge"   ->   challenge Id:  "my-stamplay-challenge"
+
+	<div data-stamplay-widget="gm.user-status" data-challenge-id="[YOUR CHALLENGE ID HERE]"></div>  
+-->
+
+
+<div id="challenge-user-status">
+    <div class= "row">
+    	<div class="col-md-4">
+	  		<img src="{{user.profileImg}}?type=normal"/>		  		
+	  	</div>
+	  	<div class="col-md-4">		  		
+		  	<p><b>{{user.displayName}}</b></p>
+		  	<p>{{userChallenge.points}} points</p>
+	  	</div>
+	  	{{#if userChallenge.hasLevels}}
+		  	<div class="col-md-4">
+		  		<img src="{{currentLevel.badgeUrl}}" width="65px" height="65px"/>
+		  	</div>
+	  	{{/if}}
+  	</div>
+</div>

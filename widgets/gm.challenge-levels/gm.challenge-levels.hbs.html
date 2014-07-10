@@ -1,0 +1,17 @@
+<!-- 
+	Challenge Id is generated from the challenge Title by converting like this:	
+	challenge Name:  "My Stamplay challenge"   ->   challenge Id:  "my-stamplay-challenge"
+
+	<div data-stamplay-widget="gm.challenge-levels" data-challenge-id="[YOUR CHALLENGE ID HERE]"></div>  
+-->
+
+  <div id="challengelevels">
+  	<div class= "row">
+		  	{{#each level}}
+		  	<li style="display:inline-block;text-align:center;width:100px;"> 
+		  		<img style="display:inline-block;" src="{{badgeUrl}}"/> 
+		  		<p>{{title}}</p>
+		  	</li>
+		  	{{/each}}
+  	</div>
+  </div>
