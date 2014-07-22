@@ -46,13 +46,11 @@ Go to [your account](http://editor.stamplay.com/apps) and create a new app.
 Other required services :
 
 * A [Facebook App](http://developers.facebook.com/apps) to setup Facebook Login auth
-* A [Mailchimp](http://mailchimp.com) account
-
 
 Optional services :
 
 * [Google Analytics](http://google.com/analytics)
-
+* [Mailchimp](http://mailchimp.com)
 
 ## Configuring the components
 
