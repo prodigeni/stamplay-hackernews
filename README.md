@@ -45,7 +45,22 @@ HNclone is built around the following apis (components) of Stamplay
 * [Form](http://docs.stamplay.apiary.io/#form)
 * [Gamification](http://docs.stamplay.apiary.io/#challenge)
 * [Custom Objects](http://docs.stamplay.apiary.io/#customobject)
+* [Mailchimp](http://docs.stamplay.apiary.io/#customobject)
 * [Email](http://docs.stamplay.apiary.io/#email)
+
+
+## Requirements
+
+Go to [your account](http://editor.stamplay.com/apps) and create a new app.
+
+Other required services :
+
+* A [Facebook App](http://developers.facebook.com/apps) to setup Facebook Login auth
+
+Optional services :
+
+* [Google Analytics](http://google.com/analytics)
+* [Mailchimp](http://mailchimp.com) to integrate newsletter functionalities in our app
 
 
 ## Configuring the backend
@@ -54,11 +69,52 @@ After creating a new app on [Stamplay](https://editor.stamplay.com) let's start 
 
 Lets see one-by-one how they are configured:
 
-**User**: the app leverages Facebook Login to provide an easy login to its users. In order to activate yours you need to get an APPID and APPSecret on [Facebook Developer's portal](http://developers.facebook.com/apps), create an app and add Stamplay.com as authorized domain as you can see in the pic below. 
+### User
+the app leverages Facebook Login to provide an easy login to its users. In order to activate yours you need to get an APPID and APPSecret on [Facebook Developer's portal](http://developers.facebook.com/apps), create an app and add Stamplay.com as authorized domain as you can see in the pic below. 
 
 ![Facebook app settings](http://blog.stamplay.com/wp-content/uploads/2014/07/Schermata-2014-07-22-alle-17.43.24.png "Facebook app settings")
 
 now you have the data to configure Facebook Login on your app's user module. Go back on Stamplay, select the user component, add Facebook as signup service and then cut and paste the App ID and App Secret and click save.
 
+
+### Form
+### Gamification
+### Custom Objects
+### Mailchimp
+### Email
+For this component we don't need any setup
+
+
+
+## Building the frontend
+
+### /index
+### /newest
+### /submit
+### /item
+### /contact
+
+
+
+-----------------------
+# Cloning
+
+First, clone this repository :
+
+    git clone git@github.com:Stamplay/stamplay-hackernews.git
+    
+Or download it as a zip file
+	
+	https://github.com/Stamplay/stamplay-hackernews/archive/master.zip 
+
+
+-----------------------
+# Next steps
+
+Here are a few ideas for further improvement :
+
+* Use [Pusher](http://pusher.com) component to send realtime notification when a new post is created
+* PushState support
+* _Your idea here… ?_
 
 
