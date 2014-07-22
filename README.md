@@ -45,7 +45,6 @@ HNclone is built around the following apis (components) of Stamplay
 * [Form](http://docs.stamplay.apiary.io/#form)
 * [Gamification](http://docs.stamplay.apiary.io/#challenge)
 * [Custom Objects](http://docs.stamplay.apiary.io/#customobject)
-* [Mailchimp](http://docs.stamplay.apiary.io/#customobject)
 * [Email](http://docs.stamplay.apiary.io/#email)
 
 
@@ -60,10 +59,9 @@ Other required services :
 Optional services :
 
 * [Google Analytics](http://google.com/analytics)
-* [Mailchimp](http://mailchimp.com) to integrate newsletter functionalities in our app
 
 
-## Configuring the backend
+## Configuring the components
 
 After creating a new app on [Stamplay](https://editor.stamplay.com) let's start by picking the component we want to use in our app that are: **User**, **Email**, **Gamification**, **Custom Objects** and **Form**.
 
@@ -77,12 +75,32 @@ the app leverages Facebook Login to provide an easy login to its users. In order
 now you have the data to configure Facebook Login on your app's user module. Go back on Stamplay, select the user component, add Facebook as signup service and then cut and paste the App ID and App Secret and click save.
 
 
-### Form
+### Custom Object
+For our Hacker News clone we use this module to represent the **Post** that users can publish on Hacker news. Our posts will have a title, url, description and other two attributes as showed in the picture below. 
+
+After setting up this Stamplay will instantly expose Restful APIs for our newly created Post resource on the following endpoint ```https://APPID.stamplay.com/api/cobject/v0/post```
+
+![Custom Object settings](http://blog.stamplay.com/wp-content/uploads/2014/07/Schermata-2014-07-22-alle-19.38.29.png)
+
+
 ### Gamification
-### Custom Objects
-### Mailchimp
+User activity on Hacker News is rewarded with Karma points, this component empower you to add gamification mechanics by defining challenges and achievements in your app. In this way we will be able to assign points to our users as soon as they post or comment new Posts on our Hacker News clone without having to write a single server side line of code.
+
+![Gamification settings](http://blog.stamplay.com/wp-content/uploads/2014/07/Schermata-2014-07-22-alle-19.49.13.png)
+
+
+### Form
+Form component is used to create a contact form to let our users reach out to us without leaving the app. Our contact form will have two fields, *email* and *message*.
+
+![Form settings](http://blog.stamplay.com/wp-content/uploads/2014/07/Schermata-2014-07-22-alle-20.14.38.png)
+
 ### Email
-For this component we don't need any setup
+This component we doesn't need any setup but, couldn't be easier than that ;)
+
+
+
+## Creating the Tasks
+
 
 
 
