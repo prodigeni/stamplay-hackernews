@@ -237,7 +237,6 @@ Then you need to upload the frontend files in your app and you can do it in two 
 Here are a few ideas for further improvement :
 
 * Use [Pusher](http://pusher.com) component to send realtime notification when a new post is created
-* PushState support
 * _Your idea here… ?_
 
 Again, for any questions drop an email to [giuliano.iacobelli@stamplay.com](mailto:giuliano.iacobelli@stamplay.com) :)
