@@ -240,4 +240,6 @@ Here are a few ideas for further improvement :
 * PushState support
 * _Your idea here… ?_
 
+Again, for any questions drop an email to [giuliano.iacobelli@stamplay.com](mailto:giuliano.iacobelli@stamplay.com) :)
 
+Ciao!
