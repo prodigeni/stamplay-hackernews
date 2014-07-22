@@ -105,7 +105,7 @@ To push email addresses of app's users to a Mailchimp list you only need to conn
 
 Now let's add the tasks that will define the server side of our app. For our app we want that:
 
-#####When a new user signup, we send him a welcome email
+####When a new user signup, we send him a welcome email
 Trigger : User - On Signup
 
 Action: Email - Send Email
@@ -119,7 +119,7 @@ Action: Email - Send Email
 	Body: "Hi {{user.displayName}}! Welcome to this clone of Hacker News built with <a href="http://stamplay.com">Stamplay</a>"
 
 
-#####When a new user signup, he automatically join the karma points challenge
+####When a new user signup, he automatically join the karma points challenge
 Trigger : User - On Signup
 
 Action: Gamification - Join Challenge
@@ -128,7 +128,7 @@ Action: Gamification - Join Challenge
 
 	challenge: hnkarma
 
-#####When a user publish a new post, he earns 10 points
+####When a user publish a new post, he earns 10 points
 Trigger : Custom Object - Create (new object created)
 
 Action: Gamification - Add Points
@@ -144,7 +144,7 @@ Action: Gamification - Add Points
 	points: 10
 
 
-#####When a user fills the contact form, we receive an email with the form's content
+####When a user fills the contact form, we receive an email with the form's content
 
 Trigger : Form - Submit
 
@@ -163,7 +163,7 @@ Action: Email - Send Email
 	Body: {{entry.data.message}}
 
 
-#####When a new user signup, adds him on a Mailchimp list (optional)
+####When a new user signup, adds him on a Mailchimp list (optional)
 Trigger : User - On Signup
 
 Action: Mailchimp - Subscribe to a List
