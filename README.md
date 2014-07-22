@@ -105,7 +105,7 @@ To push email addresses of app's users to a Mailchimp list you only need to conn
 
 Now let's add the tasks that will define the server side of our app. For our app we want that:
 
-####When a new user signup, we send him a welcome email
+###When a new user signup, we send him a welcome email
 Trigger : User - On Signup
 
 Action: Email - Send Email
@@ -119,7 +119,7 @@ Action: Email - Send Email
 	Body: "Hi {{user.displayName}}! Welcome to this clone of Hacker News built with <a href="http://stamplay.com">Stamplay</a>"
 
 
-####When a new user signup, he automatically join the karma points challenge
+###When a new user signup, he automatically join the karma points challenge
 Trigger : User - On Signup
 
 Action: Gamification - Join Challenge
@@ -128,7 +128,7 @@ Action: Gamification - Join Challenge
 
 	challenge: hnkarma
 
-####When a user publish a new post, he earns 10 points
+###When a user publish a new post, he earns 10 points
 Trigger : Custom Object - Create (new object created)
 
 Action: Gamification - Add Points
@@ -144,7 +144,7 @@ Action: Gamification - Add Points
 	points: 10
 
 
-####When a user fills the contact form, we receive an email with the form's content
+###When a user fills the contact form, we receive an email with the form's content
 
 Trigger : Form - Submit
 
@@ -163,7 +163,7 @@ Action: Email - Send Email
 	Body: {{entry.data.message}}
 
 
-####When a new user signup, adds him on a Mailchimp list (optional)
+###When a new user signup, adds him on a Mailchimp list (optional)
 Trigger : User - On Signup
 
 Action: Mailchimp - Subscribe to a List
@@ -186,13 +186,33 @@ _______________________________
 
 ## Building the frontend
 
-Time to move to the frontend
+###Pages
 
-### /index
-### /newest
-### /submit
-### /item
-### /contact
+Time to move to the frontend, everything happens in few pages with the following scopes:
+
+##### /index
+The home page where users can see all the post published sorted by upvotes received, and logged users can vote the best ones.
+
+##### /newest
+A page where you can see all the post published sorted by date, most recent first.
+
+##### /submit
+A page to submit the a new post
+
+##### /item
+A page to see the detail of a post, read and post comments
+
+##### /contact
+A page that contains the contact form to let our users reach out to us without leaving the website.
+
+
+When working with the frontend you can leverage Handlebars syntax to include recurring pieces of HTML (like an header or a footer). Navigating thourgh the code it's see how it's structured. There is always a main layout file that embeds the body of the page, then the single pages like *index* or  *newest* include header and footer of this app.
+
+###Assets
+
+Assets is the folder where you can store all the static content of your app, you can always easily reach out to your static files base root using ```{{assetsUrl}/assets``` in your HTML.
+
+In **main.js** you can find the frontend logic written with few lines of javascript and using jQuery.
 
 
 
