@@ -3,7 +3,7 @@ stamplay-hackernews
 
 **This project is built on the [Stamplay](https://stamplay.com) platform, with few lines of [jQuery](http://jquery.com) to show how to build your own clone of hacker news in tenth of minutes.**
 
-You can test it anytime simply creating a new project on Stamplay and uploading all the frontend assets with our client or our browser based code editor.
+You can test it anytime simply creating a new project on Stamplay and uploading all the frontend assets with our client or our browser based code editor. 
 
 Feel free to implement more cool features (see the last paragraph for ideas), contribute to this repo or clone it to use it by your own scopes. For any question drop an email to [giuliano.iacobelli@stamplay.com](mailto:giuliano.iacobelli@stamplay.com)
 
@@ -14,7 +14,7 @@ This is a demo of what you can achieve with [Stamplay](http://stamplay.com).
 
 It's somewhat of a clone of Hacker News. [View demo](https://68a5fe.stamplay.com/)
 
-Currently, in order to show how to leverage Stamplay we used [jQuery](http://jquery.com), so it will work on any browser.
+Currently, in order to show how to leverage Stamplay APIs and keep it simple we used few lines of [jQuery](http://jquery.com) to implement the client side logic.
 
 * Login with Facebook
 * Publish a URL/Post
@@ -25,16 +25,6 @@ Currently, in order to show how to leverage Stamplay we used [jQuery](http://jqu
 * Search Posts
 
 Best of all, it has no server code it has barely some Javascript line. Prepare to be amazed.
-
-The steps below are tailored for Mac environments :
-
-Linux should mostly work the same.
-
-
-This project is built on the Stamplay platform, with few lines of jQuery to show how to build your own clone of hacker news in tenth of minutes.
-
-You can test it anytime simply creating a new project on Stamplay and uploading all the frontend assets with our client or our browser based code editor.
-
 
 -----------------------
 # Anatomy
