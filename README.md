@@ -36,6 +36,7 @@ HNclone is built around the following apis (components) of Stamplay
 * [Gamification](http://docs.stamplay.apiary.io/#challenge)
 * [Custom Objects](http://docs.stamplay.apiary.io/#customobject)
 * [Email](http://docs.stamplay.apiary.io/#email)
+* [Mailchimp](http://mailchimp.com)
 
 
 ## Requirements
@@ -45,6 +46,8 @@ Go to [your account](http://editor.stamplay.com/apps) and create a new app.
 Other required services :
 
 * A [Facebook App](http://developers.facebook.com/apps) to setup Facebook Login auth
+* A [Mailchimp](http://mailchimp.com) account
+
 
 Optional services :
 
@@ -76,6 +79,8 @@ After setting up this Stamplay will instantly expose Restful APIs for our newly 
 ### Gamification
 User activity on Hacker News is rewarded with Karma points, this component empower you to add gamification mechanics by defining challenges and achievements in your app. In this way we will be able to assign points to our users as soon as they post or comment new Posts on our Hacker News clone without having to write a single server side line of code.
 
+Gamification's challenges can have one or more level that are unlocked when the user earns enough points. Every level has a graphic representation for both locked and unlocked state. Here we can see our one and only "superguru" level for the karma point challenge that user will unlock after they earn 900 points.
+
 ![Gamification settings](http://blog.stamplay.com/wp-content/uploads/2014/07/Schermata-2014-07-22-alle-19.49.13.png)
 
 
@@ -84,17 +89,104 @@ Form component is used to create a contact form to let our users reach out to us
 
 ![Form settings](http://blog.stamplay.com/wp-content/uploads/2014/07/Schermata-2014-07-22-alle-20.14.38.png)
 
+
 ### Email
 This component we doesn't need any setup but, couldn't be easier than that ;)
 
 
+### Mailchimp (optional)
+To push email addresses of app's users to a Mailchimp list you only need to connect your account. Just click the "Connect" button and authorize Stamplay in interacting with your Mailchimp data.
 
-## Creating the Tasks
+
+-----------------------
 
 
+## Creating the server side logic with Tasks
+
+Now let's add the tasks that will define the server side of our app. For our app we want that:
+
+#####When a new user signup, we send him a welcome email
+Trigger : User - On Signup
+
+Action: Email - Send Email
+
+**Send Email configuration**
+
+	to: {{user.email}}  // this will be automatically replaced with user's email
+	from: "welcome@stamplaynews.com"
+	name: "Stamplay HN"
+	Subject: "Welcome!"
+	Body: "Hi {{user.displayName}}! Welcome to this clone of Hacker News built with <a href="http://stamplay.com">Stamplay</a>"
+
+
+#####When a new user signup, he automatically join the karma points challenge
+Trigger : User - On Signup
+
+Action: Gamification - Join Challenge
+
+**Join Challenge configuration**
+
+	challenge: hnkarma
+
+#####When a user publish a new post, he earns 10 points
+Trigger : Custom Object - Create (new object created)
+
+Action: Gamification - Add Points
+
+
+**Create configuration**
+
+	custom object: post 
+
+**Add Points configuration**
+
+	challenge: hnkarma
+	points: 10
+
+
+#####When a user fills the contact form, we receive an email with the form's content
+
+Trigger : Form - Submit
+
+Action: Email - Send Email
+
+**Form submit configuration**
+
+	Form: contact
+
+**Send Email configuration**
+
+	to: address@email.com
+	from: {{entry.data.email}}
+	name: {{entry.data.email}}
+	Subject: "New Message from Hacker News clone"
+	Body: {{entry.data.message}}
+
+
+#####When a new user signup, adds him on a Mailchimp list (optional)
+Trigger : User - On Signup
+
+Action: Mailchimp - Subscribe to a List
+
+**Subscribe to a List configuration**
+
+	list: [your list name]
+	email: {{user.email}}	
+
+
+
+This should be the final result of the configured tasks
+
+
+![Task overview](http://blog.stamplay.com/wp-content/uploads/2014/07/Schermata-2014-07-22-alle-22.28.44.png)
+
+
+_______________________________
 
 
 ## Building the frontend
+
+Time to move to the frontend
 
 ### /index
 ### /newest
